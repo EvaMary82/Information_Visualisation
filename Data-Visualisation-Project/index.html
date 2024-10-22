@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <script src="https://unpkg.com/css-doodle@latest/css-doodle.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <section class="landing-page">
+    <div class="landing-animation">
+    <css-doodle>
+        :doodle {
+            @grid: 30x1 / 100vw 100vh / #270f34;
+            background: #ffffff; /* Set background to white */
+        }
+
+        --color: #ff3377, #ff5588, ##ff99cc, #ffbbee;
+
+        @grid: 30x1 / 100vw 100vh / #270f34; 
+        
+        :container {
+          perspective: 30vmin;
+          --deg: @p(-180deg, 180deg);
+        }
+        
+        :after, :before {
+          content: '';
+          background: @p(--color); 
+          @place: @r(100%) @r(100%);
+          @size: @r(6px);
+          @shape: heart;
+        }
+      
+        @place: center;
+        @size: 18vmin; 
+      
+        box-shadow: @m2(0 0 50px @p(--color));
+        background: @m100(
+          radial-gradient(@p(--color) 50%, transparent 0) 
+          @r(-20%, 120%) @r(-20%, 100%) / 1px 1px
+          no-repeat
+        );
+      
+        will-change: transform, opacity;
+        animation: scale-up 12s linear infinite;
+        animation-delay: calc(-12s / @I * @i);
+      
+        @keyframes scale-up {
+            0%, 100% {
+                transform: translateZ(0) rotate(0);
+                opacity: 0.2; /* Increase base opacity */
+            }
+            10%, 90% {
+                opacity: 1; /* Increase peak opacity */
+            }
+            95% {
+                transform: translateZ(35vmin) rotateZ(var(--deg));
+            }
+        }
+    </css-doodle>
+    <div class="landing-text">
+        <h1>The Death Of Modern Dating</h1>
+        <p>The Paradox of Choice</p>
+    </div>
+</div>
+</section>
+<section class="introduction">
+    <header>
+        <h2>Introduction</h2>
+    </header>
+    <article>
+        <p>Dating applications have completely changed the way that we initiate and form romantic connections, turning the search for love into a gamified, commodified experience. 
+        At the forefront of this is <strong>Tinder</strong>, founded in 2012 it stands out as a pioneer in the realm of online dating that matches singles across the globe and played a significant role in transforming online dating into a mainstream activity. With over 4.4 million monthly downloads in February 2024, Tinder is the most downloaded dating application in the world (Ceci,L , 2024).
+        Despite a staggering user base, only half of users say that they have had positive experiences (Relationships Australia, 2023). Why? Simply put the elements and rewards approach adopted by most dating apps make you feel like you’re playing a game that lands up creating a hyper-materialistic and shallow dating landscape. With using dating apps, we all fall prey to the same problem: <strong> Paradox of Choice</strong>. This overwhelming abundance of options often leads to less happiness and satisfaction as users constantly search for “the one”. Let's dive into the paradox of choice and its impact on modern dating.</p>
+        <div class="image-container">
+            <img src="images/ket stat1.png" alt="Key Stat 1" >
+            <img src="images/key stat2.png" alt="Key Stat 2" >
+            <img src="images/key stat3.png" alt="Key Stat 3" >
+        </div>
+    </article>
+</section>
+<section class="setting-the-scene">
+    <header>
+        <h2>Setting the Scene</h2>
+    </header>
+    <article>
+        <p>With an estimated 75 million active users each month, Tinder is the most popular dating app in the world (Bai.N, 2023). This analysis explores Tinder's popularity by examining user penetration rates across different regions, illustrated through an interactive 3D world map.  User penetration rates refer to the number of users of a product or service to the total population that is targeted by that product or service (Lebail.M, 2024).</p>
+        <div id="choropleth">
+    </article>
+</section>
+
+
+<!-- User Demographics Section -->
+<section class="user-demographics-age">
+    <header>
+        <h2>Who Is The One?</h2>
+    </header>
+    <article>
+        <p>From this graph, we can observe that certain age groups, such as users aged 24-29, are overrepresented. Concurrently, it is evident that most users set their maximum age filter at 30. This suggests that users above the age of 30 are not being engaged with at the same scale, thus making only a select few of the dating pool accessible to them. This phenomenon illustrates the paradox of choice, where an abundance of options is available to a particular group (users aged 24-29), leading to overwhelming choices and potential decision paralysis within this group. Meanwhile, other groups (users above 30) face limited options, reinforcing the idea that modern dating dynamics are skewed</p>
+       <!-- <div class = "histogram-container">-->
+        <div id ="user-ages-chart"></div>
+        <!--<div id ="user-agesfilter-chart"></div>-->
+    </div>
+    </article>
+    </section>
+    <section class="gender-section">
+        <header>
+        <h2>Does The One Want Me?</h2>
+        </header>
+        <article>
+            <p>A significant gender disparity is evident on dating apps, particularly on Tinder, where approximately 87% of users identify as male. Assuming a predominantly heterosexual user base, this statistic accurately captures the bulk of filters set by users seeking women.
+                Consequently, men face a significantly more limited choice compared to women, who are inundated with options. Despite the impression of an overwhelming number of profiles, the data reveals a skew towards just one demographic, highlighting the unequal distribution of choices and opportunities on these platforms.</p>
+            <div class="pie-chart-container" style="display: flex; justify-content: center; align-items: center;">
+            <div id="gender-distribution-chart"></div>
+            <div class="subscript">*Note that dataset did not include non-binary individuals</div>
+            <div id="gender-preference-chart"></div>
+            </div>
+        </article>
+    </section>
+    <section class="scatter-section">
+        <header>
+        <h2>Just got Ghosted?</h2>
+    </header>
+        <article>
+        <p>What better metric for assessing connections on dating apps than the conversations themselves? This plot vividly illustrates this phenomenon. It's evident that as the number of conversations increases, so does the frequency of ghosting—where one abruptly ceases contact without explanation. As individuals engage in more conversations, they become increasingly susceptible to being ghosted. This pattern suggests that many interactions fail to progress beyond superficial exchanges, hindering the prospects of establishing meaningful connections. In essence, those genuinely seeking a connection find their efforts thwarted, trapped in a cycle of matches that ultimately lead nowhere. Thus, the perceived abundance of choice on these apps reveals itself as nothing more than an illusion.</p>
+        <div id="ghosting-plot"></div>
+    </article>
+    </section>
+    <section class="time-series">
+        <header>
+            <h2>The Tonight Show Starring Tinder</h2>
+        </header>
+        <article>
+            <p>Here we look at 2 heatmaps comparing Tinder conversation times in 2015 and 2021 that illustrate a significant shift in user behavior, highlighting the paradox of choice in modern dating.</p>
+            <div class="heatmaps-container">
+                
+                <div class="heatmap-item">
+                    <p>2021 Heatmap:</p>
+                    <ul>
+                        <li>Peak Times: 6 PM to 12 AM.</li>
+                        <li>Implication: Users seek immediate gratification, reflecting a more superficial engagement.</li>
+                    </ul>
+                </div>
+                <div class="heatmap-item">
+                    <p>2015 Heatmap:</p>
+                    <ul>
+                        <li>Peak Times: Midday.</li>
+                        <li>Implication: Users engaged during breaks, indicating a serious approach to finding connections.</li>
+                    </ul>
+                </div>
+            </div>
+               
+            <div class="heatmaps-container">
+                <div id="heat-map"></div>
+                <div id="heat-map2"></div>
+            </div>
+        </article>
+        </section>
+        <section class= "activityTrends">
+            <header>
+                <h2>Pass, Like, Match?</h2>
+                </header>
+            <article>
+                <p>Examining the counts of likes, matches, and passes over the years reveals intriguing trends. Matches consistently remain below two throughout the period, while two significant trends emerge. 
+                    The first being a notable increase in both passes and likes. This suggests a heightened investment of time and effort in the app, yielding minimal rewards.
+                    Another noteworthy trend is the shift from a balanced ratio of passes to likes in 2015 to a substantial increase in passes compared to likes by 2020. This indicates a growing tendency towards "serial swiping." These observations collectively underscore the phenomenon of the paradox of choice. Despite the perception of abundant options, data suggests that the rate of genuine connections remains remarkably low, despite heightened activity and engagement.
+                    </p>
+                <div id= "line-graph"></div>
+                <input type="range" id="yearSlider" min="2015" max="2020" step="1" value="2015" oninput="updateChart()">
+                <label for="yearSlider" id="yearLabel">2015</label>
+            </article>
+        </section>
+        <section class =" Call-To-Action">
+            <header>
+                <h2>So How do We Increase Our Success On Dating Apps?</h2>
+            </header>
+            <article>
+                <div class="footer-image">
+                <img src="images/CTA.png" alt="Call To Action image"><!-- Lllerena,K (2024)-->
+            </div>
+            </article>
+        </section>
+    <script src="script.js"></script>
+</body>
+</html>
+

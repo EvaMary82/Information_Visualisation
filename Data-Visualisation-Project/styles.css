@@ -1,0 +1,197 @@
+
+  body{
+    overflow-y: scroll;/*this is to achieve the snap scroll effect*/
+    overflow-x: hidden;
+    background-color: #F2F3F4;
+  }
+  html{
+    scroll-snap-type: y mandatory;/*this is to make each section automatically snap into place*/
+  }
+  .gender-section p {
+    padding-left: 10%; 
+    padding-right: 10%;
+}
+
+.landing-page, .introduction, .setting-the-scene, .user-demographics-age, .time-series, .activityTrends, .Call-To-Action,.scatter-section, .gender-section {
+
+    scroll-snap-align: start;/* to get the sections to align to next section on scroll*/
+    padding: 10%;
+    border-bottom: 1px solid #ddd;
+    height: 100vh; 
+    width: 100vw; 
+    box-sizing: border-box; 
+    display: flex;
+    flex-direction: column;/*have items laid out one on top of the other */
+    justify-content: center;/*center content */
+    align-items: center; /* center content*/
+}
+
+
+.landing-animation {
+    position: absolute; /* Position absolutely to parent container*/
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+}
+
+
+css-doodle { /* code has been lifted from source: https://codepen.io/yuanchuan/pen/wZJqNK*/
+    width: 100vw; /* Take up the full width of the parent container */
+    height: 100vh; /* Take up the full height of the parent container */
+    position: absolute; /* Position the doodle absolutely */
+    top: 0; /* Align to the top of the parent container */
+    left: 0; /* Align to the left of the parent container */
+}
+.landing-text {
+    position: absolute; /* Position text absolute to parent container */
+    top: 50%; 
+    left: 50%; /* Center text */
+    transform: translate(-50%, -50%); /* Adjust the position to be truly centered (Helped by ChatGPT) */
+    z-index: 1; /* Ensure the text is above the animation */
+    text-align: center; /* Center align the text */
+    color: black; /* Text color */
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background to make the text more readable (Helped by Chat GPT)  */
+    padding: 20px; 
+    border-radius: 10px; /* Rounded corners */
+}
+
+.landing-text h1 { /* imported text from google fonts*/
+    font-family: "Berkshire Swash", serif;
+    font-size: 3.5em;
+}
+
+.landing-text p {
+    margin: 10px 0 0;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 2em;
+}
+header h2 {
+    font-family: "Berkshire Swash", serif;
+    font-weight: 300;
+    font-style: normal;    
+    font-size: 2em;
+    margin-bottom: 10%;
+}
+p, ul, ol, li{
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    font-style: normal;
+    margin: 0; 
+    padding: 0; 
+  } /**/ 
+
+
+ .histogram-container, .pie-chart-container{ 
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 10%; /* Adjust as needed */
+    margin-top: 10%;
+}
+
+.image-container img {
+    width: 200px;
+}
+.image{
+    width: auto;
+    height: 100px;
+}
+
+.time-series article {
+    display: flex;
+    flex-direction: column; /* Change to column layout */
+    align-items: center;
+    width: 100%;
+}
+
+.heatmaps-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center heatmaps vertically */
+   width: 100%;
+   
+}
+
+#heat-map,
+#heat-map2 {
+max-width: 600px;
+  margin: 0 5%; /* Add margin for spacing between the heatmaps */
+
+}
+/*article {
+    margin: auto;
+    width: 100%;
+}*/
+#gender-distribution-chart,
+#gender-preference-chart
+{
+    width: 70%; 
+    margin-right:100px; 
+}
+.subscript {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 12px; 
+    color: black; 
+    margin-top: 10px; /* Space between the chart and the subscript */
+    text-align: center;
+}
+
+
+#choropleth{
+    width: 100%;
+    background-color: rgb(238,235,216); 
+    border: none; /* Remove any border */
+    padding: 0; /* Remove any padding */
+    margin: 0; /* Remove any margin */
+    margin-top: 60px;
+}
+#ghosting-plot{
+    width: 100%;   
+}
+
+
+.heatmap-comparison {
+    display: flex;
+    gap: 30px; 
+}
+
+.heatmap-item {
+    flex: 1;
+    display: flex; /* Enable flex layout for items inside */
+    flex-direction: column; 
+}
+
+.heatmap-item ul{
+    margin-top: 2%;
+}
+
+.heatmap-item ul li {
+    margin-bottom: 2%;
+  font-size: 01em;
+}
+
+Call-To-Action {
+    text-align: center;
+    margin: 20px;
+}
+.footer-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-image img {
+    width: 100%; 
+    height: auto; 
+    max-width: 1000px; 
+}
